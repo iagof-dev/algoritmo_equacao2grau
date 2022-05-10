@@ -1,18 +1,21 @@
 ﻿using System.Net;
-
+//definindo configurações essenciais para uso do algoritmo
 Console.Title = "Algoritmo Equação de 2° Grau";
 WebClient web = new WebClient();
 string logo_msg = web.DownloadString("https://pastebin.com/raw/iGF6Ex0C");
 string resultado_msg = web.DownloadString("https://pastebin.com/raw/bRL3LYfF");
-
 double resposta1 = 0;
 double resposta2 = 0;
 double resposta3 = 0;
-
 double resultado = 0;
+double resultado2 = 0;
+Console.WriteLine("Carregado!");
 
-void Inicio() { 
+//inicio e perguntas ao usuario
+void Inicio() {
+    Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine(logo_msg);
+    Console.ForegroundColor = ConsoleColor.Gray;
     Console.WriteLine("    ");
     Console.WriteLine("    ");
     Console.WriteLine("Algoritmo - Calculadora de Equação 2° Grau");
@@ -23,6 +26,9 @@ void Inicio() {
     Console.WriteLine("========================================");
     Console.WriteLine("    ");
 
+    //pegando valores para realizar conta
+
+    Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine("Digite o Valor A");
     resposta2 = Convert.ToDouble(Console.ReadLine());
 
@@ -35,22 +41,31 @@ void Inicio() {
     user_resultado();
 }
 void user_resultado(){ 
-//negativo
+
+    //calculo negativo
     resultado = (Math.Pow(resposta1, 2) - 4 * resposta2 * resposta3);
+    //calculo positivo
+    resultado2 = (Math.Pow(resposta1, 2) + 4 * resposta2 * resposta3);
 
     Console.Clear();
+
+    //mostrando resultado
     Console.WriteLine(resultado_msg);
     Console.WriteLine("========================================");
-    Console.WriteLine("DELTA = " + resposta1 + "² - 4 * " + resposta2 + " * " + resposta3);
+    Console.WriteLine("Negativo: DELTA = " + resposta1 + "² - 4 * " + resposta2 + " * " + resposta3);
+    Console.WriteLine("Positivo: DELTA = " + resposta1 + "² + 4 * " + resposta2 + " * " + resposta3);
     Console.WriteLine("    ");
-    Console.WriteLine("Resultado é: " + resultado);
+    Console.WriteLine("Resultado Negativo é: " + resultado);
+    Console.WriteLine("Resultado Positivo é: " + resultado2);
     Console.WriteLine("========================================");
 
+    //voltando para o começo
     Console.ReadKey();
     Console.Clear();
     Inicio();
 }
 
+//voltando para o começo
 Console.Clear();
 Inicio();
 

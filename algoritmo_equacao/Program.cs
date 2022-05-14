@@ -38,6 +38,14 @@ void Inicio() {
     Console.WriteLine("Digite o Valor C");
     resposta3 = Convert.ToDouble(Console.ReadLine());
 
+    if(resposta1 == 0 || resposta2 == 0 || resposta3 == 0)
+    {
+        Console.WriteLine("Erro!");
+        Console.ReadKey();
+        Console.Clear();
+        Inicio();
+
+    }
     user_resultado();
 }
 void user_resultado(){ 
